@@ -1,0 +1,44 @@
+#chatBox {
+	overflow: auto;
+}
+
+#fixedContainer {
+	margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+	#fixedContainer {
+		position: fixed;
+	}
+}
+
+body {
+	padding-top: 70px;
+}
+
+video { width: 100% !important; height: auto !important; }
+
+.col-md-4 #player {
+	height:250px;
+}
+
+.col-md-8 #player {
+	height:450px;
+}
+
+.divider {
+	height: 20px;
+}
+
+#disabledPlayer {
+	font-size: 5em;
+	text-align: center;
+	line-height: 1em;
+	padding-top: 11px;
+}
+
+#search, #sendMessage {
+	-webkit-transition: width 0.25s;
+    -moz-transition: width 0.25s;
+    -o-transition: width 0.25s;
+    transition: width 0.25s;
+}

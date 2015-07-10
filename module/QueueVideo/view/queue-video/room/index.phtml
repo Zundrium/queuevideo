@@ -1,0 +1,140 @@
+<div class="row">
+	<audio id="messageSound" src="<?php echo $this->basePath() ?>/audio/message.mp3" preload="auto"></audio>
+	<div class="col-md-8" >
+		<div id="fixedContainer">
+			<div class="row hidden-xs hidden-sm">
+				<div class="col-md-3">
+					<ul id="userList" class="well list-unstyled"></ul>
+				</div>
+				<div class="col-md-9">
+					<div id="chatBox" class="well"></div>
+				</div>
+			</div>
+			<div class="row">
+				
+				<form id="search" class="col-md-3">
+					<div class="input-group">
+						<div class="input-group-btn dropup">
+			                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+			               		<span id="searchType">Video</span>
+			                  <span class="caret"></span>
+			                </button>
+			                
+			                <ul class="dropdown-menu" id="searchTypeDropdown">
+	                			<li role="presentation" class="dropdown-header"> <i class="glyphicon glyphicon-facetime-video"></i> DailyMotion</li>
+			                  	<li class="disabled"><a href="#">Video (Implemented soon)</a></li>
+			                  	<li class="disabled"><a href="#">Playlist (Implemented soon)</a></li>
+			                  	<li role="presentation" class="divider"></li>
+			                  	<li role="presentation" class="dropdown-header"> <i class="glyphicon glyphicon-facetime-video"></i> Vimeo</li>
+			                  	<li class="disabled"><a href="#">Video (Implemented soon)</a></li>
+			                  	<li class="disabled"><a href="#">Playlist (Implemented soon)</a></li>
+			                  	<li role="presentation" class="divider"></li>
+			                  	<li role="presentation" class="dropdown-header"> <i class="glyphicon glyphicon-facetime-video"></i> Vevo</li>
+			                  	<li class="disabled"><a href="#">Video (Implemented soon)</a></li>
+			                  	<li class="disabled"><a href="#">Playlist (Implemented soon)</a></li>
+			                  	<li role="presentation" class="divider"></li>
+			                  	<li role="presentation" class="dropdown-header"> <i class="glyphicon glyphicon-volume-up"></i> Soundcloud</li>
+			                  	<li class="disabled"><a href="#">Song (Implemented soon)</a></li>
+			                  	<li class="disabled"><a href="#">Playlist (Implemented soon)</a></li>
+			                  	<li role="presentation" class="divider"></li>
+			                  	<li role="presentation" class="dropdown-header"> <i class="glyphicon glyphicon-volume-up"></i> Spotify</li>
+			                  	<li class="disabled"><a href="#">Song (Implemented soon)</a></li>
+			                  	<li class="disabled"><a href="#">Playlist (Implemented soon)</a></li>
+			                  	<li role="presentation" class="divider"></li>
+	                			<li role="presentation" class="dropdown-header"> <i class="glyphicon glyphicon-facetime-video"></i> YouTube</li>
+			                  	<li><a href="#">Video</a></li>
+			                  	<li><a href="#">Playlist</a></li>
+			                </ul>
+			              </div>
+			              <div class="dropup">
+					    	<input id="searchString" class="form-control" name="searchString" type="text"/>
+						    <ul id="searchResults" class="dropdown-menu media-list" style="color: #666;">
+						    	<li class="panel-body">
+						    		<div class="input-group pull-right">
+							    		<button type="button" class="btn btn-danger btn-xs closeResults"><i class="glyphicon glyphicon-remove"></i></button>
+							    	</div>
+						    		<h4>Results for <b><span class="searchStringTitle">...</span></b></h4>
+							    </li>
+							</ul>
+						</div>
+						<div class="input-group-btn">
+							<button class="btn btn-primary ladda-button submit" data-style="zoom-out">
+								<span class="ladda-label"><i class="glyphicon glyphicon-search"></i></span>
+								<span class="ladda-spinner"></span>
+								<div class="ladda-progress" style="width: 0px;"></div>
+							</button>
+						</div>
+					</div>
+				</form>
+				<form id="sendMessage" class="col-md-9 hidden-xs hidden-sm">
+					<div class="input-group">
+					    <input id="message" class="form-control" name="message" type="text"/>
+					    <div class="input-group-btn">
+							<button class="btn btn-primary ladda-button submit" data-style="zoom-out">
+								<span class="ladda-label"><i class="glyphicon glyphicon-comment"></i></span>
+								<span class="ladda-spinner"></span>
+								<div class="ladda-progress" style="width: 0px;"></div>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div id="player" class="hidden-xs hidden-sm thumbnail"></div>
+		<div class="row hidden-xs hidden-sm ]]">
+			<div class="col-md-6">
+				<a href="#" class="btn btn-default btn-block" id="changePlayerSize">
+					<i class="glyphicon glyphicon-resize-full"></i> 
+					<span>Increase size</span>
+				</a>
+			</div>
+			<div class="col-md-6">
+				<a href="#" class="btn btn-default btn-block" id="disablePlayer">
+					<i class="glyphicon glyphicon-ban-circle"></i> 
+					<span>Disable video</span>
+				</a>
+			</div>
+		</div>
+		<div class="divider"></div>
+		<div id="queueContainer" class="well">
+			<ul id="queue" class="media-list"></ul>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="myModalLabel">WTF!@#!#$???</h4>
+        </div>
+       <div class="modal-body">
+          <p>Connection closed, either the server is down or the server killed the connection.</p>
+          <p>Go ahead and refresh the page</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="moreInfo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="<?php echo $this->basePath() . '/js/room.js'?>"></script>
+<script src="<?php echo $this->basePath() . '/js/spin.min.js'?>"></script>
+<script src="<?php echo $this->basePath() . '/js/ladda.min.js'?>"></script>
